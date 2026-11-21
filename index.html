@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TIGER 数学课堂：一步一步理解瓜豆原理的五种模型。">
+  <title>TIGER｜瓜豆原理</title>
+  <link rel="icon" href="tiger-logo.svg">
+  <link rel="stylesheet" href="classroom.css">
+  <script src="geometry.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><img src="tiger-logo.svg" alt="TIGER 小老虎 logo"><span><strong>TIGER</strong><small>数学课堂</small></span></div>
+    <h1>瓜豆原理</h1><span class="course">轨迹与最值</span>
+  </header>
+  <main>
+    <aside class="mnemonic" aria-label="课堂口诀">
+      <span class="mnemonic-label">记住这四句</span>
+      <p><span data-verse="0">主动走，从动随</span><span data-verse="1">定点定角定分比</span><span data-verse="2">中点构造中位线</span><span data-verse="3">定角构造手拉手</span></p>
+    </aside>
+    <div class="tabbar" role="tablist" aria-label="五种模型">
+      <button id="tab-0" role="tab" aria-selected="true" aria-controls="model-panel"><small>直线</small><strong>中点型</strong></button>
+      <button id="tab-1" role="tab" aria-selected="false" aria-controls="model-panel" tabindex="-1"><small>直线</small><strong>旋转型</strong></button>
+      <button id="tab-2" role="tab" aria-selected="false" aria-controls="model-panel" tabindex="-1"><small>圆</small><strong>中点型</strong></button>
+      <button id="tab-3" role="tab" aria-selected="false" aria-controls="model-panel" tabindex="-1"><small>圆</small><strong>旋转型</strong></button>
+      <button id="tab-4" role="tab" aria-selected="false" aria-controls="model-panel" tabindex="-1"><small>圆</small><strong>旋转缩放型</strong></button>
+    </div>
+    <section id="model-panel" class="board" role="tabpanel" aria-labelledby="tab-0">
+      <div class="given-row"><p id="given"></p><button id="restart" class="quiet">重新开始</button></div>
+      <div class="board-content">
+        <div class="drawing-column">
+          <svg id="diagram" viewBox="0 0 660 430" role="img" aria-labelledby="diagram-title diagram-desc"><title id="diagram-title">瓜豆原理逐步作图</title><desc id="diagram-desc"></desc><g id="scene"></g></svg>
+          <div class="legend"><span class="blue">● P 主动点</span><span class="orange">● Q 从动点</span><span class="green" id="helper-legend" hidden>┄ 辅助线</span></div>
+          <div id="motion" class="motion" hidden><button id="play" aria-pressed="false">播放描迹</button><label for="progress">移动 P</label><input id="progress" type="range" min="0" max="1000" value="0" aria-label="主动点 P 的运动进度"><button id="replay" class="quiet">重播</button></div>
+        </div>
+        <div class="step-column">
+          <div id="step-copy" aria-live="polite" aria-atomic="true"><p id="step-count" class="step-count"></p><h2 id="step-title"></h2><p id="step-text" class="step-text"></p><p id="step-formula" class="step-formula" hidden></p></div>
+          <div id="step-dots" class="step-dots" aria-hidden="true"></div>
+          <div class="step-controls"><button id="previous" disabled>上一步</button><button id="next" class="primary">下一步</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
